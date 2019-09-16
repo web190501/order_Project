@@ -1,11 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
 import details from "./views/details.vue"
-=======
-import Home from './views/Home.vue'
 import Product from './views/Product.vue'
->>>>>>> 273b4382be026860fa9d179cc98f486613a59ed6
 Vue.use(Router)
 
 export default new Router({
@@ -13,8 +9,6 @@ export default new Router({
     {
       path:'/details',component:details,
     },
-<<<<<<< HEAD
-=======
     {
       path: '/about',
       name: 'about',
@@ -28,6 +22,5 @@ export default new Router({
       name: 'product',
       component: Product
     },
->>>>>>> 273b4382be026860fa9d179cc98f486613a59ed6
   ]
 })
