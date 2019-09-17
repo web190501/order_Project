@@ -16,6 +16,11 @@ export default new Router({
       path:'/Me',component:Me,
     },
     {
+      path: '/ex',
+      name: 'ex',
+      component: ex
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
