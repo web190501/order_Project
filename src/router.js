@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import details from "./views/details.vue"
 import Product from './views/Product.vue'
-import ex from './views/ex.vue'
+ 
 Vue.use(Router)
 
 export default new Router({
@@ -10,11 +10,7 @@ export default new Router({
     {
       path:'/details',component:details,
     },
-    {
-      path: '/ex',
-      name: 'ex',
-      component: ex
-    },
+    
     {
       path: '/about',
       name: 'about',
