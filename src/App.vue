@@ -6,6 +6,7 @@
   </div>
 </template>
 
-<style>
- @import url("./assets/css/Product.css");
-</style>
+<!-- <style>
+/*  
+ @import url("./assets/css/Product.css"); */
+</style> -->
