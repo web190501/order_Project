@@ -15,7 +15,7 @@
             <p id="details_title">都市晚餐</p>
             <div>
                 <button id="details_btn1">
-                    套餐
+                    套餐 
                 </button>
                 <span id="details_span1">￥698</span>
             </div>
