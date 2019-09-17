@@ -15,11 +15,11 @@ export default new Router({
       path:'/Reg',component:Reg,
       path:'/Me',component:Me,
     },
-    {
-      path: '/ex',
-      name: 'ex',
-      component: ex
-    },
+    // {
+    //   path: '/ex',
+    //   name: 'ex',
+    //   component: ex
+    // },
     {
       path: '/about',
       name: 'about',
