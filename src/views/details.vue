@@ -3,9 +3,9 @@
         <div>
                 <van-swipe @change="onChange">
                         <van-swipe-item><img id="details_img_d1" class="details_img" src="../../public/img/01aa.jpg" alt=""></van-swipe-item>
-                        <van-swipe-item> <img id="details_img_d2"  class="details_img" src="../../public/img/6fcd36ea9be3dbce429202f2757123bc.jpg" alt=""></van-swipe-item>
+                           <van-swipe-item> <img id="details_img_d2"  class="details_img" src="../../public/img/6fcd36ea9be3dbce429202f2757123bc.jpg" alt=""></van-swipe-item>
                         <van-swipe-item> <img id="details_img_d3"  class="details_img" src="../../public/img/01aa.jpg" alt=""></van-swipe-item>
-                      
+                       
                         <div class="custom-indicator" slot="indicator">
                           {{ current + 1 }}/3
                         </div>
@@ -23,9 +23,8 @@
         <div>
             <br>
             <hr>
-            </br>
-            <h2>菜单</h2>   
-
+            
+            <h2>菜单</h2>    
             <div class="details-cd">
             <van-tabs type="card" >
                     <van-tab title="前菜" class="details-cd-btn">
