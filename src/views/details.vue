@@ -17,7 +17,7 @@
         <div>
             <br>
             <hr>
-            </br>
+            
             <h2>菜单</h2>    
             <div class="details-cd">
                 <button>前菜</button>
