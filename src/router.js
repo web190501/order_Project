@@ -5,11 +5,12 @@ import Product from './views/Product.vue'
 import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
 import Me from './views/Me.vue'
+import detail from './views/detail'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
+      path:'/detail',component:detail,
       path:'/details',component:details,
       path:'/Login',component:Login,
       path:'/Reg',component:Reg,
@@ -27,6 +28,16 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // whih is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: detail
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: details
     },
     {
       path: '/product',

@@ -1,9 +1,11 @@
 <template>
     <div>
+        <div class="details-container">
         <div>
                 <van-swipe @change="onChange">
                         <van-swipe-item><img id="details_img_d1" class="details_img" src="../../public/img/01aa.jpg" alt=""></van-swipe-item>
-                           <van-swipe-item> <img id="details_img_d2"  class="details_img" src="../../public/img/6fcd36ea9be3dbce429202f2757123bc.jpg" alt=""></van-swipe-item>
+                           <van-swipe-item> <img id="details_img_d2"  class="details_img" 
+                            src="../../public/img/6fcd36ea9be3dbce429202f2757123bc.jpg" alt=""></van-swipe-item>
                         <van-swipe-item> <img id="details_img_d3"  class="details_img" src="../../public/img/01aa.jpg" alt=""></van-swipe-item>
                        
                         <div class="custom-indicator" slot="indicator">
@@ -86,8 +88,7 @@
                   </van-tabs> 
             </div>
 
-
-            <van-button class="details-qb" url="../../public/qbcd.html">查看全菜</van-button>
+            <van-button to="detail"  class="details-qb">查看全部</van-button>
             <h2>详情</h2>
             <div class="details-xq"> 
                 <p><img src="../../public/img/time.png" alt="" class="details-img1"> 可订时间</p>
@@ -100,30 +101,57 @@
                     <li><span>星期六</span><span>11:00 - 14:00</span></li>
                     <li><span>星期日</span><span>11:00 - 14:00</span></li>
                 </ul>
-                <p><img src="../../public/img/space.png" alt="" class="details-img1">地址</p>
-                <p id="details-xq-p1">延安西路688弄2号1楼</p>
+                    <p><img src="../../public/img/space.png" alt="" class="details-img1">地址</p>
+                    <p id="details-xq-p1">延安西路688弄2号1楼</p>
+                </div>
+                <h2>餐厅</h2>
+                     <div class="details-ct">
+                    </div>
+                <div class="details-pl">
+                    <span >322条评论</span>         
+                    <van-button @click="showPopup" id="details-pl-btn1" to="Login">用户评论</van-button>                   
+                    <van-popup v-model="show">请先登陆</van-popup>              
+                </div>
+                <div class="details-pl-d1">
+                    <img id="details-pl-img1" src="../image/touxiang.png" alt="">
+                    <span>飞翔的小猪</span>
+                    <span class="details-pl-sp2">2019-09-07 星期六</span>
+                    <p class="details-pl-p">您的满意度评分</p>
+                    <van-rate
+  v-model="value"
+  :size="25"
+  color="#ee0a24"
+  void-icon="star"
+  void-color="#eee"
+/>
+                </div>
             </div>
-            <h2>餐厅</h2>
-            <div class="details-ct">
-            </div>
-    </div>
+        </div>
     </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      current: 0
+      current: 0,
+      show: false,
+      value: 3
     }
   },
   methods: {
     onChange(index) {
       this.current = index;
+    },
+    showPopup() {
+      this.show = true;
     }
   }
 }
 </script>
 <style scoped>
+    .details-container{
+        width:100%;
+    }
     /* 价格 */
 #details_span1{
     color:#dc2224;
@@ -155,7 +183,7 @@ export default {
     height:13.75rem;
 }
 .custom-indicator{
-    margin-left: 23rem;
+    margin-left: 90%;
     padding: 0.1875rem 0.3125rem;
     margin-top:5rem;
     color: #fff;
@@ -258,5 +286,52 @@ export default {
         width:20.75rem;
         height:14.75rem;
         margin-left:1rem;
+        margin-bottom:2rem;
+    }
+    /* 评论 */
+    .details-pl{
+        display: flex;
+        margin: 1.7rem 0;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+    padding-top:1.5rem;
+    padding-bottom: 2rem;
+    }
+    /* 评论数量 */
+    .details-pl span{
+        margin-top:2rem;
+        margin-left:0.782rem;
+    }
+    /* 评论按钮 */
+    #details-pl-btn1{
+        margin-left:5rem;
+        background-color:#fff;
+        color:#da2028;
+        border:1px solid #da2028;
+        width:9rem;
+        font-size: 0.9rem;
+        margin-top:1rem;
+    }
+    /* 用固话头像 */
+    #details-pl-img1{
+        margin-left:0.725rem;
+        width:2.6rem;
+    }
+    .details-pl-d1{
+        border: 1px solid #e7e7e7;
+        padding-top:1.5rem;
+    padding-bottom: 2rem;
+    } 
+    /* 时间 */
+    .details-pl-sp2{
+        margin-left:4rem;
+    }
+    /* 打分 */
+    .details-pl-p{
+        margin-left: 0.725rem;
+        margin-top:2rem;
+        color: #da2028;
+        font-size:1.5rem;
     }
 </style>
