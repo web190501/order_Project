@@ -47,7 +47,7 @@ export default {
       }
       /* 登录注册页头部 */
       .title{
-        /* width:95%; */
+         /* width:95%; */
         height:50px;
         display: flex;
         justify-content: space-between;

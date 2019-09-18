@@ -92,7 +92,6 @@ export default {
       }
       /* 登录按钮的样式 */
       .reg-container>.btn{
-        /* box-sizing:border-box; */
         width:95%;
         height:50px;
         margin-top:20px;
