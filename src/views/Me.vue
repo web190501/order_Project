@@ -65,7 +65,7 @@ export default {
     /* 邀请好友图片 */
     .invite>img{
       padding-top:11px;
-      padding-right:10px;
+      padding-right:10px;/*右内边距*/
     }
     /* 图像及登录样式 */
     .login-header{

@@ -104,7 +104,6 @@ export default {
       }
       /* 手机号码文本框 */
       .phone{
-        /* width:95%; */
         height:50px;
         margin-top:30px;
         border:1px solid #ddd;
