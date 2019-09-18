@@ -1,23 +1,49 @@
 <template>
 
     <div class="product">  
-  
   <div class="pro-1">
-      
       <my-search></my-search> 
+      <van-popup v-model="show1">
+        <div>
+
+        </div>
+      </van-popup>
+        <van-popup v-model="show2">
+        <div>
+
+        </div>
+      </van-popup>
+        <van-popup v-model="show3">
+        <div>
+
+        </div>
+      </van-popup>
+        <van-popup v-model="show4">
+        <div>
+
+        </div>
+      </van-popup>
         <div class="pro-top-nav">
                     
-              <div>
+          <div class="pro-t-b"> 
            <span class="pro-nav-span"> 
-                 <button class="pro-nav-btn" style="margin:0">位置</button>
+           <van-button type="primary" @click="showPopup(1)" class="pro-nav-btn">
+               位置
+            </van-button>
            </span>
            <span class="pro-nav-span"> 
-                 <button class="pro-nav-btn">菜系</button>
+         <van-button type="primary" @click="showPopup(2)" class="pro-nav-btn">
+                                  菜系
+            </van-button>
            </span>
              <span class="pro-nav-span"> 
-                 <button class="pro-nav-btn">排序</button>
+         <van-button type="primary" @click="showPopup(3)" class="pro-nav-btn">
+                                  排序
+            </van-button>
            </span>  <span class="pro-nav-span"> 
-                 <button class="pro-nav-btn">过滤</button>
+         <van-button type="primary" @click="showPopup(4)" class="pro-nav-btn">
+                                  过滤
+            </van-button>
            </span>
            </div>
            
@@ -503,9 +529,25 @@
 export default {
   data() {
     return {
-      show: false
+      show1: false,
+       show2: false,
+        show3: false,
+         show4: false
+    }
+  },
+
+  methods: {
+    showPopup(p) {
+        if(p==1){
+       this.show1 = true;
+      }else if(p==2){
+       this.show2 = true;
+      }else if(p==3){
+       this.show3 = true;
+      }else if(p){
+       this.show4=true
+      }
     }
   }
-}
- 
+};
 </script>
