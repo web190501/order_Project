@@ -110,21 +110,28 @@
                 <div class="details-pl">
                     <span >322条评论</span>         
                     <van-button @click="showPopup" id="details-pl-btn1" to="Login">用户评论</van-button>                   
-                    <van-popup v-model="show">请先登陆</van-popup>              
+                              
                 </div>
                 <div class="details-pl-d1">
                     <img id="details-pl-img1" src="../image/touxiang.png" alt="">
                     <span>飞翔的小猪</span>
                     <span class="details-pl-sp2">2019-09-07 星期六</span>
                     <p class="details-pl-p">您的满意度评分</p>
-                    <van-rate
-  v-model="value"
-  :size="25"
-  color="#ee0a24"
-  void-icon="star"
-  void-color="#eee"
-/>
+                    <van-rate class="details-pl-xx" v-model="value" :size="25" color="#ee0a24" void-icon="star" void-color="#eee"/>
+                    <p class="details-pl-p2">
+                        环境还可以 稍微有点拥挤  服务还不错 人多了就会有些应付不来的感觉 味道还可以没有惊艳但也可以吃吃</p>
+                   <p id="details-pl-p3"> <van-button class="details-pl-btn2" icon="like-o" type="primary">喜欢</van-button></p>
                 </div>
+                <div class="details-pl-d1">
+                        <img id="details-pl-img1" src="../image/touxiang.png" alt="">
+                        <span>Darker</span>
+                        <span class="details-pl-sp2">2019-09-07 星期六</span>
+                        <p class="details-pl-p">您的满意度评分</p>
+                        <van-rate class="details-pl-xx" v-model="value" :size="25" color="#ee0a24" void-icon="star" void-color="#eee"/>
+                        <p class="details-pl-p2">
+                                下午临时刷到的，就高兴前往，结果前台没有信息，主管确认了我的手机上信息后安排入座。食物很喜欢，牛排肉质和熟度都不错。后来有酒杯打翻，事后服务员马上重新安排，还是让人满意的。总体食物五分！谁让我喜欢他家的牛扒！</p>
+                       <p id="details-pl-p3"> <van-button class="details-pl-btn2" icon="like-o" type="primary">喜欢</van-button></p>
+                    </div>
             </div>
         </div>
     </div>
@@ -135,14 +142,21 @@ export default {
     return {
       current: 0,
       show: false,
-      value: 3
+      value: 0
     }
   },
   methods: {
     onChange(index) {
+        
       this.current = index;
     },
     showPopup() {
+    //     this.$dialog.alert({
+    //   message: '弹窗内容'})
+      this.$dialog.confirm({
+  title: '标题',
+  message: '请先登录'
+})
       this.show = true;
     }
   }
@@ -326,6 +340,8 @@ export default {
     /* 时间 */
     .details-pl-sp2{
         margin-left:4rem;
+        color: #9b9b9b;
+    font-size: 0.8em;
     }
     /* 打分 */
     .details-pl-p{
@@ -333,5 +349,30 @@ export default {
         margin-top:2rem;
         color: #da2028;
         font-size:1.5rem;
+    }
+    .details-pl-xx{
+        margin-top:1rem;
+        margin-left:0.785rem;
+    }
+    .details-pl-p2{
+        margin-top:1rem;
+        margin-left:0.785rem;
+        font-size:1em;
+        color:darkgrey
+    }  
+     /* 喜欢按钮 */
+    .details-pl-btn2{
+        background:#fff;
+        margin-left:70%;
+        margin-top:0.8rem;
+        color:#666;
+        border:0.0625rem solid #666;
+        
+    }
+ 
+    #details-pl-p3 :hover{
+        background-color:#da2028;
+        border:0.0625rem solid #da2028;
+        color:#fff;
     }
 </style>
