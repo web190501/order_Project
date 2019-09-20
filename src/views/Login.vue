@@ -43,12 +43,12 @@ export default {
   }
   /* 最外面div的外边距 */
     .login{
-        margin:10px;
+        margin:0.625rem;
       }
       /* 登录注册页头部 */
       .title{
          /* width:95%; */
-        height:50px;
+        height:3.125rem;
         display: flex;
         justify-content: space-between;
         border-radius:2px;
@@ -58,8 +58,8 @@ export default {
         width:50%;
         display:inline-block;
         text-align: center;
-        line-height: 50px;
-        font-size: 14px;
+        line-height: 3.125rem;
+        font-size: 0.875rem;
         color:#fff;
         background:rgba(0, 0, 0, 0.6);
       }
@@ -68,60 +68,60 @@ export default {
         width:50%;
         display:inline-block;
         text-align: center;
-        line-height: 50px;
-        font-size: 14px;
+        line-height: 3.125rem;
+        font-size: 0.875rem;
         
       }
       /* 姓名文本框 */
       .name{
         /* width:95%; */
-        height:50px;
-        margin-top:30px;
+        /* height:3.125rem; */
+        margin-top:1.25rem;
         border:1px solid #ddd;
         border-radius: 2px;
       }
       /* 邮箱文本框 */
       .email{
         /* width:95%; */
-        height:50px;
-        margin-top:30px;
+        /* height:3.125rem; */
+        margin-top:1.25rem;
         border:1px solid #ddd;
         border-radius: 2px;
       }
       /* 密码文本框 */
       .pwd{
         /* width:95%; */
-        height:50px;
-        margin-top:30px;
+        /* height:3.125rem; */
+        margin-top:1.25rem;
         border:1px solid #ddd;
         border-radius: 2px;
       }
       input{
         border:none;
-        padding:16px 10px ;
-        font-size:14px;
+        padding:1rem 0.625rem ;
+        font-size:0.875rem;
         outline: none;
       }
       /* 手机号码文本框 */
       .phone{
-        height:50px;
-        margin-top:30px;
+        /* height:3.125rem; */
+        margin-top:1.25rem;
         border:1px solid #ddd;
         border-radius: 2px;
       }
       /* 复选框 */
       .agree{
-        margin-top:20px;
+        margin-top:1.25rem;
       }
       .agree>input{
-        font-size:15px;
+        font-size:0.9375rem;
         color:#575757;
       }
       /* 验证码的设置 */
       .yzm{
         /* width:95%; */
-        height:50px;
-        margin-top:30px;
+        /* height:3.125rem; */
+        margin-top:20px;
         border:1px solid #ddd;
       }
       .one{
@@ -131,16 +131,16 @@ export default {
         display: inline-block;
       }
       .one>span{
-        padding-left:10px;
+        padding-left:0.625rem;
       }
       .yzm>span{
         display: inline-block;
-        width:80px;
-        height:30px;
+        width:5rem;
+        height:1.875rem;
         background-color:#d8d8d8;
         font-size:14px;
-        margin-top:5px;
-        margin-right:5px;
+        margin-top:4px;
+        margin-right:4px;
         padding-top:11px;
         padding-left:10px;
         float:right;
@@ -148,8 +148,8 @@ export default {
       /* 注册按钮的样式 */
       .btn{
         width:100%;
-        height:50px;
-        margin-top:20px;
+        height:3.125rem;
+        margin-top:1.25rem;
         /* margin-left:5px;
         margin-right:5px; */
         background-color:#da2028;
@@ -161,7 +161,7 @@ export default {
       .btn>a{
         color:#ffffff;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 1.125rem;
     
       }
 </style>
