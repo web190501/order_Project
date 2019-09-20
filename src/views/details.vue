@@ -133,7 +133,27 @@
                        <p id="details-pl-p3"> <van-button class="details-pl-btn2" icon="like-o" type="primary">喜欢</van-button></p>
                     </div>
             </div>
+            <div class="details-time">
+                <p  class="details-time-p">选购订餐时间</p>
+                <van-datetime-picker v-model="currentDate" type="datetime" :min-date="minDate" :max-date="maxDate"/>
+            </div>
+            <!-- 尾部 -->
+            <div class="details-wb">
+                <h3>DININGCITY</h3>
+                <p><a href="">关于我们</a></p>
+                <p><a href="">联系信息</a></p>
+                <p><a href="">隐私条款</a></p>
+                <p><a href="">诚聘英才</a></p>
+                <p><a href="">会员礼遇</a></p>
+                <p><a href="">鼎食聚</a></p>
+            </div>
+            <br>
+            <hr>
         </div>
+        <div class="hello">
+            <div style="height:500px" id="container" tabindex="0"></div>
+          </div>
+        
     </div>
 </template>
 <script>
@@ -142,10 +162,32 @@ export default {
     return {
       current: 0,
       show: false,
-      value: 0
+      value: 0,
+      minHour: 10,
+      maxHour: 20,
+      minDate: new Date(),
+      maxDate: new Date(2019, 10, 1),
+      currentDate: new Date(),
+      msg: 'hello'
     }
   },
+  mounted () {
+    this.init()
+  },
   methods: {
+    init: function () {
+      let map = new AMap.Map('container', {
+        center: [121.535965,31.255814],
+        resizeEnable: true,
+        zoom: 5,
+        lang: 'cn'
+      })
+      AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function () {
+        map.addControl(new AMap.ToolBar())
+        map.addControl(new AMap.Scale())
+      })
+    },
+  
     onChange(index) {
         
       this.current = index;
@@ -374,5 +416,24 @@ export default {
         background-color:#da2028;
         border:0.0625rem solid #da2028;
         color:#fff;
+    }
+    /* 选购订餐时间 */
+    .details-time{
+        margin-left:0.725rem;
+    }
+    .details-time-p{
+        padding:1rem 0 1rem 0;
+    }
+    /* 尾部 */
+    .details-wb{
+        margin-left:0.725rem;
+        padding:1rem 0 0.5rem 0;
+    }
+    .details-wb p{
+        margin-left:2rem;
+        margin-top:1.3rem;
+    }
+    .details-wb p a{
+        color:#767676;
     }
 </style>
