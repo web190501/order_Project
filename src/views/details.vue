@@ -1,6 +1,11 @@
 <template>
     <div>
         <div class="details-container">
+            <div>
+                <van-button to="details"  class="details-qb"> <img src="../image/left.png" class="details-left" alt="">
+                </van-button>
+            <span class="details-qb-span">鼎食聚</span>
+        </div>
         <div>
                 <van-swipe @change="onChange">
                         <van-swipe-item><img id="details_img_d1" class="details_img" src="../../public/img/01aa.jpg" alt=""></van-swipe-item>
@@ -105,24 +110,39 @@
                     <p id="details-xq-p1">延安西路688弄2号1楼</p>
                 </div>
                 <h2>餐厅</h2>
-                     <div class="details-ct">
-                    </div>
+                            <div class="hello">
+                                    <div style="height:500px" id="container" tabindex="0"></div>
+                                  </div>
+                <div>
+                        <!-- <input class="details-put" v-model="put.content"> -->
+                        <p class="details-put-p">请写一个想要评论的内容</p>
+                        <textarea name=""  class="details-put" id="" cols="30" rows="10" v-model="put.content"></textarea>
+                        <p class="details-pl-p">您的满意度评分</p>
+                        <van-rate class="details-pl-xx" v-model="put.val" :size="25" color="#ee0a24" void-icon="star" void-color="#eee"/>
+                        <van-button @click="showPopup" id="details-pl-btn1" >用户评论</van-button> 
+                        <p class="details-pl-p">上传图片</p>
+                        <van-uploader :after-read="afterRead" class="details-pl-up"/> 
+                        <!-- <div>
+                            <img :src="" alt="">
+                        </div> -->
+                        <van-button @click="add" type="primary" size="large">提交按钮</van-button>
+                </div>          
                 <div class="details-pl">
                     <span >322条评论</span>         
-                    <van-button @click="showPopup" id="details-pl-btn1" to="Login">用户评论</van-button>                   
+                    <span>用户评论区域</span>
                               
                 </div>
-                <div class="details-pl-d1">
+                <div class="details-pl-d1" v-for="(item,i) of list" :key="i" >
                     <img id="details-pl-img1" src="../image/touxiang.png" alt="">
-                    <span>飞翔的小猪</span>
-                    <span class="details-pl-sp2">2019-09-07 星期六</span>
+                    <span >{{item.uname}}</span>
+                    <span  class="details-pl-sp2">{{item.date}}</span>
                     <p class="details-pl-p">您的满意度评分</p>
-                    <van-rate class="details-pl-xx" v-model="value" :size="25" color="#ee0a24" void-icon="star" void-color="#eee"/>
+                    <van-rate class="details-pl-xx" v-model="item.val" :size="25" color="#ee0a24" void-icon="star" void-color="#eee"/>
                     <p class="details-pl-p2">
-                        环境还可以 稍微有点拥挤  服务还不错 人多了就会有些应付不来的感觉 味道还可以没有惊艳但也可以吃吃</p>
-                   <p id="details-pl-p3"> <van-button class="details-pl-btn2" icon="like-o" type="primary">喜欢</van-button></p>
+                        {{item.content}}</p>
+                   <p id="details-pl-p3"> <van-button @click="active(i)" :class="{'details-pl-btn3':item.like==1,'details-pl-btn2':item.like==0}" icon="like-o" type="primary">喜欢</van-button></p>
                 </div>
-                <div class="details-pl-d1">
+                <!-- <div class="details-pl-d1">
                         <img id="details-pl-img1" src="../image/touxiang.png" alt="">
                         <span>Darker</span>
                         <span class="details-pl-sp2">2019-09-07 星期六</span>
@@ -131,11 +151,11 @@
                         <p class="details-pl-p2">
                                 下午临时刷到的，就高兴前往，结果前台没有信息，主管确认了我的手机上信息后安排入座。食物很喜欢，牛排肉质和熟度都不错。后来有酒杯打翻，事后服务员马上重新安排，还是让人满意的。总体食物五分！谁让我喜欢他家的牛扒！</p>
                        <p id="details-pl-p3"> <van-button class="details-pl-btn2" icon="like-o" type="primary">喜欢</van-button></p>
-                    </div>
+                    </div> -->
             </div>
             <div class="details-time">
                 <p  class="details-time-p">选购订餐时间</p>
-                <van-datetime-picker v-model="currentDate" type="datetime" :min-date="minDate" :max-date="maxDate"/>
+                <van-datetime-picker v-model="currentDate" type="datetime" :max-date="maxDate"/>
             </div>
             <!-- 尾部 -->
             <div class="details-wb">
@@ -150,9 +170,6 @@
             <br>
             <hr>
         </div>
-        <div class="hello">
-            <div style="height:500px" id="container" tabindex="0"></div>
-          </div>
         
     </div>
 </template>
@@ -162,7 +179,30 @@ export default {
     return {
       current: 0,
       show: false,
-      value: 0,
+      put:{
+          uname:"ben",
+          val:0,
+          date:"",
+          content:"",
+          like:0
+      },
+
+      list: [
+          {
+              uname:"飞翔的小猪",
+              date:"2019-09-07 星期六",
+              val:3,
+              content:"环境还可以 稍微有点拥挤  服务还不错 人多了就会有些应付不来的感觉 味道还可以没有惊艳但也可以吃吃",
+              like:0
+          },
+          {
+              uname:"Darker",
+              date:"2019-09-03 星期一",
+              val:4,
+              content:"下午临时刷到的，就高兴前往，结果前台没有信息，主管确认了我的手机上信息后安排入座。食物很喜欢，牛排肉质和熟度都不错。后来有酒杯打翻，事后服务员马上重新安排，还是让人满意的。总体食物五分！谁让我喜欢他家的牛扒！",
+              like:0
+          }
+      ],
       minHour: 10,
       maxHour: 20,
       minDate: new Date(),
@@ -175,12 +215,23 @@ export default {
     this.init()
   },
   methods: {
+    afterRead(file) {
+      // 此时可以自行将文件上传至服务器
+      console.log(123)
+    },
+    active:function(i){
+        if(this.list[i].like==1){
+            this.list[i].like=0
+        }else{
+            this.list[i].like=1
+        }
+    },
     init: function () {
       let map = new AMap.Map('container', {
         center: [121.535965,31.255814],
         resizeEnable: true,
         zoom: 5,
-        lang: 'cn'
+        lang: 'en'
       })
       AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function () {
         map.addControl(new AMap.ToolBar())
@@ -192,14 +243,42 @@ export default {
         
       this.current = index;
     },
+    add(){
+        var newput={} 
+            this.put.date=new  Date().toLocaleDateString()
+            for(var key in this.put){
+                newput[key]=this.put[key]
+            }
+            this.list.unshift(newput)
+            this.put.val=0;
+            this.put.uname="ben";
+            this.put.content="";
+            this.date="";
+    },
     showPopup() {
+        if(false){
     //     this.$dialog.alert({
     //   message: '弹窗内容'})
-      this.$dialog.confirm({
+    this.$dialog.confirm({
   title: '标题',
-  message: '请先登录'
+  message: '弹窗内容'
+}).then(() => {
+    this.$router.push("/Login")
+}).catch(() => {
+    
+});
+        }else{
+    //     this.$dialog.alert({
+    //   message: '弹窗内容'})
+    this.$dialog.confirm({
+  title: '进入评论区',
+  message: ''
+}).then(() => {
+    this.$router.push("/comment")
+}).catch(() => {
+    
 })
-      this.show = true;
+        }
     }
   }
 }
@@ -207,6 +286,22 @@ export default {
 <style scoped>
     .details-container{
         width:100%;
+    }
+    /* 上面返回按钮 */
+    .details-qb{
+        border:0px solid #fff important!;
+    }
+    .details-qb-span{
+        font-size:1.6rem;
+        margin-left:3rem;
+       color:black;
+       font-weight: 530
+    }
+    /* 左键 */
+    .details-left{
+        width:1rem;
+        height:1rem;
+        border: 0px;
     }
     /* 价格 */
 #details_span1{
@@ -404,19 +499,22 @@ export default {
     }  
      /* 喜欢按钮 */
     .details-pl-btn2{
+        width:5rem;
         background:#fff;
         margin-left:70%;
         margin-top:0.8rem;
         color:#666;
         border:0.0625rem solid #666;
-        
     }
- 
-    #details-pl-p3 :hover{
-        background-color:#da2028;
-        border:0.0625rem solid #da2028;
+    .details-pl-btn3{
+        width:5rem;
+        background:#da2028;
+        margin-left:70%;
+        margin-top:0.8rem;
         color:#fff;
+        border:0.0625rem solid #da2028;
     }
+
     /* 选购订餐时间 */
     .details-time{
         margin-left:0.725rem;
@@ -435,5 +533,25 @@ export default {
     }
     .details-wb p a{
         color:#767676;
+    }
+    /* 评论输入框 */
+    .details-put{
+    margin-left:1.3rem;
+    margin-top:1rem;
+    border: 1px solid #ccc;
+    width: 80%;
+    height: 12.5rem;
+    padding: 0.625rem;
+    border-radius: 0.2125rem;
+    }
+    /* 上传图片功能 */
+    .details-pl-up{
+        margin-left:1rem
+    }
+    .details-put-p{
+        margin-left:1.3rem;
+        margin-top:1.5rem;
+        color: #da2028;
+    font-weight: 400;
     }
 </style>

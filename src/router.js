@@ -7,16 +7,11 @@ import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
 import Me from './views/Me.vue'
 import detail from './views/detail'
+import comment from './views/comment.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
-    {
-      path:'/detail',component:detail,
-      path:'/details',component:details,
-      path:'/Login',component:Login,
-      path:'/Reg',component:Reg,
-      path:'/Me',component:Me,
-    },
+    
     // {
     //   path: '/ex',
     //   name: 'ex',
@@ -65,5 +60,8 @@ export default new Router({
       name: 'Me',
       component: Me
     },
+     { path:'/comment',
+     name:'comment',
+     component:comment}
   ]
 })
